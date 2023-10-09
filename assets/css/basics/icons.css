@@ -1,0 +1,54 @@
+.material-symbols-outlined {
+	user-select: none;
+	position: relative;
+	cursor: pointer;
+	font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 200, 'opsz' 48;
+	transition: 0.2s;
+}
+
+.material-symbols-outlined.un-starred {
+	transition: 0.3s;
+}
+
+.material-symbols-outlined.starred {
+	font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 200, 'opsz' 48;
+	transition: 0.3s;
+	color: gold;
+}
+
+.material-symbols-outlined::after {
+	content: '';
+	background-color: rgba(32, 33, 35, 0.059);
+	opacity: 0;
+	transition: opacity 0.2s;
+	top: -5px;
+	bottom: -5px;
+	left: -5px;
+	right: -5px;
+	border-radius: 50%;
+	position: absolute;
+}
+
+.material-symbols-outlined.starred::after,
+.material-symbols-outlined.un-starred::after {
+	top: -2px;
+	bottom: -5px;
+	left: -4px;
+	right: -4px;
+}
+
+.material-symbols-outlined.save-as-note::after {
+	top: -4px;
+	bottom: -3px;
+	left: -3px;
+	right: -5px;
+}
+
+.material-symbols-outlined:hover::after {
+	opacity: 1;
+}
+
+.material-symbols-outlined.pinned {
+	font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 200, 'opsz' 48;
+	color: rgb(52, 52, 48);
+}

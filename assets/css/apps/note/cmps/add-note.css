@@ -1,0 +1,91 @@
+.add-note {
+    margin-block-start: 3em;
+    margin-block-end: 5em;
+    display: flex;
+    flex-direction: column;
+    min-height: 10em;
+    border: 1px solid #d3cece;
+    border-radius: 5px;
+    width: 30em;
+    margin-inline: auto;
+    position: relative;
+
+}
+
+.add-note .input-container {
+    margin-block-start: 1em;
+    flex-grow: 1;
+}
+
+.add-note input {
+    border: none;
+    background-color: inherit;
+    font-size: 1.1em;
+}
+
+.add-note input:focus {
+    outline: none;
+}
+
+.add-note input[name='title'] {
+    font-weight: 600;
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-block-end: 1.2em;
+
+}
+
+.add-note .tool-bar {
+    display: flex;
+    padding-inline-start: 0.5em;
+}
+
+.add-note .input-container {
+    padding-inline-start: 0.5em;
+}
+
+.add-note .tool-bar span:not(:first-child) {
+    margin-inline-start: 0.5em;
+}
+
+.add-note .add-btn {
+    width: 3em;
+    cursor: pointer;
+    place-self: end;
+    margin-inline-end: 0.2em;
+    background-color: inherit;
+    border: none;
+    font-size: 1.1em;
+}
+
+.add-note .add-btn:hover {
+    background-color: rgba(234, 234, 234, 0.621);
+}
+
+.add-note .btn-container {
+    margin-block-end: 0.2em;
+
+}
+
+
+.add-note .note-img .img {
+    width: 80%;
+    margin-inline: auto;
+}
+
+.add-note .note-img>* {
+    margin-block-end: 0.8em;
+}
+
+.pin-icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+@media (max-width: 450px) {
+	.add-note {
+        width: 20em;
+        justify-content: center;
+	}
+}

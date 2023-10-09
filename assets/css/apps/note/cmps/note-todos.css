@@ -1,0 +1,10 @@
+.note-todos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.note-todos button {
+    width: 2em;
+    margin-inline-start: 0.2em;
+}

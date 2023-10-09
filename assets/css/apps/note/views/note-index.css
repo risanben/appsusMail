@@ -1,0 +1,15 @@
+ /* note index */
+
+
+ @media (max-width: 640px) {
+     .note-index.main-layout {
+         grid-template-columns: 0.3rem 1fr 0.3rem;
+     }
+ }
+
+ @media (max-width: 640px) {
+     .note-index>* {
+         margin-inline: auto;
+     }
+
+ }

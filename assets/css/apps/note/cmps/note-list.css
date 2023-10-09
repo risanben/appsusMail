@@ -1,0 +1,21 @@
+/* note list */
+
+.note-list {
+	/* column-count: 4;
+    column-gap: 2em;
+    margin-block: 3em; */
+
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(17em, 1fr));
+	grid-gap: 1.5em;
+}
+
+.note-list li {
+	margin-block: 1em;
+	/* break-inside: avoid-column; */
+}
+
+.note-list-pinned {
+	margin-block-end: 8em;
+}

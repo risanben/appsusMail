@@ -1,0 +1,13 @@
+
+.app-footer {
+    background-color: lightgray;
+    text-align: center;
+    margin-block-start: 3em;
+    padding: 1.2em;
+    
+}
+
+.app-footer .copy-rights {
+    font-size: 1.2rem;
+    color: rgb(41, 38, 38) ;
+}

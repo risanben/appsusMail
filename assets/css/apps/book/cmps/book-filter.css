@@ -1,0 +1,11 @@
+.book-filter {
+	background-color: var(--mail-bg-clr-1);
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	padding-inline-start: 12px;
+}
+
+.book-filter form {
+	display: grid;
+	grid-template-columns: 100px 200px;
+}

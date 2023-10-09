@@ -1,0 +1,85 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: 'ProductSans', 'Open Sans', 'Helvetica Neue', sans-serif;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+}
+
+body,
+.app,
+#root {
+	height: 100%;
+}
+
+.app {
+	display: flex;
+	flex-direction: column;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.hidden {
+	display: none;
+}
+
+button {
+	font-family: inherit;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #ffffff;
+}
+
+::-webkit-scrollbar-track:hover {
+	background: #eeeeee;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #cccccc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #aaaaaa;
+}
+
+@media screen and (max-width: 768px) {
+	:root {
+		font-size: 0.9rem;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	::-webkit-scrollbar {
+		display: none;
+	}
+}

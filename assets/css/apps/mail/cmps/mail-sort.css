@@ -1,0 +1,33 @@
+.mail-sort {
+	display: flex;
+	/* padding-inline-start: 10em; */
+	align-items: center;
+	height: 3em;
+	padding: 2em 0.5em;
+}
+
+.mail-sort button {
+	font-size: 1.2em;
+	font-weight: 500;
+	display: flex;
+	cursor: pointer;
+	border: none;
+	width: max-content;
+	align-items: center;
+	height: 2em;
+	margin: 0.5em;
+	padding: 0.5em;
+	background-color: var(--mail-bg-clr-1);
+}
+.mail-sort button.active {
+	background-color: var(--main-bg-color);
+	box-shadow: var(--mail-box-shadow-2);
+}
+
+.mail-sort .material-symbols-outlined:after {
+	opacity: 0;
+}
+
+.mail-sort .material-symbols-outlined {
+	font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 200, 'opsz' 16;
+}

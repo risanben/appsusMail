@@ -1,0 +1,23 @@
+.book-edit {
+	min-height: 60vh;
+	margin-block-start: 1em;
+	background-color: var(--mail-bg-clr-2);
+	padding: 12px;
+	margin-inline: auto;
+	width: 90vw;
+	text-align: center;
+}
+
+.book-edit-form {
+	align-items: center;
+}
+
+.book-edit-form > * {
+	text-align: left;
+	width: 300px;
+	margin-block-end: 1em;
+}
+
+.book-edit-form .description {
+	height: 100px;
+}

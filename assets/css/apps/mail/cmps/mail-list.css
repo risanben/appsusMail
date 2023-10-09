@@ -1,0 +1,33 @@
+/* mail list */
+.mail-list {
+	min-width: 0;
+	flex: 1;
+	/* 100% minus button div minus bottom margin */
+	height: calc(100% - 2em);
+	overflow: auto;
+}
+
+.no-mails-info {
+	text-align: center;
+	flex: 1;
+}
+
+.mail-list-container {
+	overflow: hidden;
+	margin-block-end: 0em;
+	min-width: 0;
+	flex: 1;
+	background-color: white;
+	border-radius: 15px;
+}
+
+@media screen and (min-width: 768px) {
+	.mail-list-container {
+		margin-block-end: 2em;
+	}
+	.mail-list {
+		/* bottom margin is removed */
+
+		height: calc(100% - 2em - 2em);
+	}
+}

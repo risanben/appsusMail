@@ -1,0 +1,22 @@
+.book-index :is(button, a),
+.book-details :is(button, a),
+.book-edit :is(button, a),
+.add-review :is(button, a) {
+	cursor: pointer;
+	background-color: #dddddd;
+	margin: 0.5em;
+	padding: 0.5em 0.8em;
+	border-radius: 5px;
+	border: 1px solid #cccccc;
+	text-align: center;
+	font: inherit;
+	color: black;
+}
+
+.add-review :is(textarea, input, select),
+.book-details :is(textarea, input, select),
+.book-edit :is(textarea, input, select),
+.book-index :is(textarea, input, select) {
+	background-color: var(--mail-bgc-clr-1);
+	outline: none;
+}

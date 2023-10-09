@@ -1,0 +1,28 @@
+.mail-details {
+	flex: 1;
+	background-color: #fff;
+	padding-block: 2em;
+	padding-inline: 5em;
+	border-radius: 15px;
+}
+
+.mail-details .top-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.mail-details .mail-user-img {
+	width: 32px;
+	margin-inline-end: 2em;
+	border-radius: 50%;
+}
+
+.mail-details .mail-body {
+	padding-block: 2em;
+	display: flex;
+	white-space: pre-wrap;
+}
+
+.mail-details p {
+	margin: 0;
+}

@@ -1,0 +1,52 @@
+
+.color-bgc-note {
+    position: absolute;
+    height: 4em;
+    width: 20em;
+    background-color: rgb(244, 239, 239);
+    border: 1px rgb(232, 225, 225) solid;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 5;
+}
+
+.color {
+    height: 2em;
+    width: 2em;
+    border-radius: 50%;
+    /* margin-inline: 100px; */
+}
+
+/* .color.light-blue{
+    background-color: #ADD8E6;
+}
+.color.light-red {
+    background-color: #FF4040;
+
+}
+.color.light-yellow {
+    background-color: #FFF475;
+
+}
+.color.light-green{
+    background-color: #97FF9B;
+
+}
+.color.light-gray{
+    background-color: #B1C2C8;
+
+}
+.color.light-purple{
+    background-color: #FD56E1;
+
+}
+.color.light-pink {
+    background-color: #E18EB6;
+
+}
+.color.light-orange{
+    background-color: #F9A046;
+
+} */

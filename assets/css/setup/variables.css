@@ -1,0 +1,26 @@
+:root {
+	--main-bg-color: lightblue;
+	--mail-clr-1: #5f6368;
+	--mail-clr-2: #202124;
+	--mail-bg-clr-1: #f2f6fc;
+	--mail-bg-clr-2: #f6f8fc;
+	--mail-box-shadow-1: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+		0 1px 3px 1px rgba(60, 64, 67, 0.15);
+	--mail-box-shadow-2: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
+
+
+
+	--note-border: #d3cece
+
+
+	/* ////books */
+	--clr1: #31818f; /* header */
+	--clr2: #577D86; /* hover btn */
+	--clr1bg: #569DAA; /* bgc book preview */
+	--clr1bg-light: rgb(205, 221, 200);
+	--clr2bg: #B9EDDD; /* btn , filter bgc */
+	--clr2bg-light: rgb(43, 43, 43); /* header txt */
+	--clr3bg: #87CBB9;
+	--clr3bg-light: #dcf5ee;
+	--clrTxt: rgb(43, 43, 43); /* color text */
+}
