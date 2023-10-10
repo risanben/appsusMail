@@ -2,13 +2,16 @@ const { Fragment } = React
 
 import { MailPreview } from './mail-preview.jsx'
 
-export function MailList({ mails, onUpdateMail, onRemoveMail, onToggleTrash }) {
+export function MailList({ mails,toggleEmailSelection, onUpdateMail,selectedMailsIds, onRemoveMail, onToggleTrash }) {
 	return <Fragment>
 		{!!mails.length && (
 			<ul className="clean-list mail-list">
 				{mails.map(mail => (
 					<MailPreview
+
 						key={mail.id}
+						toggleEmailSelection={toggleEmailSelection}
+						selectedMailsIds={selectedMailsIds}
 						mail={mail}
 						onRemoveMail={onRemoveMail}
 						onUpdateMail={onUpdateMail}

@@ -1,9 +1,10 @@
-const { useNavigate, createSearchParams } = ReactRouterDOM
+const { useNavigate, createSearchParams, Link } = ReactRouterDOM
 const { useState, useEffect, Fragment } = React
+
 import { utilService } from '../../../services/util.service.js'
 import { mailService } from '../services/mail.service.js'
 
-export function MailPreview({ mail, onRemoveMail, onUpdateMail, onToggleTrash, folder }) {
+export function MailPreview({ mail, selectedMailsIds, toggleEmailSelection, onRemoveMail, onUpdateMail, onToggleTrash, folder }) {
 	const { from, subject, body, sentAt, to, removedAt, isRead, isStarred } = mail
 
 	const [isExpanded, setIsExpanded] = useState(false)
@@ -67,14 +68,29 @@ export function MailPreview({ mail, onRemoveMail, onUpdateMail, onToggleTrash, f
 		})
 	}
 
+	function getEditPath(mail) {
+		return `/mail/inbox/compose?to=${mail.to || ''}&subject=${mail.subject || ''}&body=${mail.boody || ''}`
+	}
+
+	// function toggleSelected(mailId){
+	// 	console.log('mailId:', mailId)
+
+	// }
+
 
 	const isReadClass = isRead ? '' : 'unread'
 	const isStarredClass = isStarred ? 'starred' : 'un-starred'
 	const starTitle = isStarred ? 'Starred' : 'Not starred'
 
+
 	return (
 		<Fragment>
 			<li onClick={onToggleIsExapnded} className={`mail-preview ${isReadClass}`}>
+				<input onClick={(ev) => ev.stopPropagation()} type="checkbox" onChange={(ev) => {
+					toggleEmailSelection(mail.id)
+				}}
+					checked={selectedMailsIds.includes(mail.id)}
+				/>
 				{/* <span className="material-symbols-outlined checkbox">check_box_outline_blank</span> */}
 				<span
 					onClick={onToggleIsStarred}
@@ -138,6 +154,7 @@ export function MailPreview({ mail, onRemoveMail, onUpdateMail, onToggleTrash, f
 						<span onClick={onGoToDetails} className="material-symbols-outlined">
 							fullscreen
 						</span>
+						{mail.isDraft && <Link to={getEditPath(mail)}>Edit</Link>}
 						<p>{body}</p>
 					</span>
 				</li>

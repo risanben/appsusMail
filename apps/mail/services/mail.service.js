@@ -23,7 +23,8 @@ export const mailService = {
 	getLoggedUser,
 	getMailFromSearchParams,
 	getFilterFromParams,
-	getDefaultSort,
+	// getDefaultSort,
+	getSortFromParams,
 	getUnreadCount,
 	filterMailsByFolder
 }
@@ -106,6 +107,13 @@ function getFilterFromParams(searchParams, folder) {
 	return filterBy
 }
 
+function getSortFromParams(searchParams) {
+	return {
+		dir: 1,
+		by: searchParams.get('sortBy') || 'date'
+	}
+}
+
 function getMailFromSearchParams(searchParams = { get: () => { } }) {
 	return {
 		id: '',
@@ -113,7 +121,7 @@ function getMailFromSearchParams(searchParams = { get: () => { } }) {
 		body: searchParams.get('body') || '',
 		sentAt: '',
 		from: '',
-		to: '',
+		to: searchParams.get('to') || '',
 		isRead: '',
 		isStarred: '',
 		removedAt: '',

@@ -46,6 +46,11 @@ export function Home() {
 					<Link to="/book">Learn more</Link>
 				</div>
 			</section>
+
+			<section className="help">
+			<Link to='/mail/inbox/compose?to=help@appsus.com&subject=help&body=i would like to receive assistant with...'>Need help? contact us</Link>
+			</section>
+
 			<h2 className="our-team">Our Team </h2>
 
 			<section className="about-us-container flex column">

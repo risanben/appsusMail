@@ -17,8 +17,10 @@ export function MailIndex() {
 
 	const [mails, setMails] = useState([])
 	const [filterBy, setFilter] = useState(mailService.getFilterFromParams(searchParams, params.folder))
-	const [sortBy, setSortBy] = useState(mailService.getDefaultSort())
+	const [sortBy, setSortBy] = useState(mailService.getSortFromParams(searchParams))
 	const [unreadCount, setUnreadCount] = useState(0)
+	const [selectedMailsIds, setSelectedMailsIds] = useState([])
+
 
 	useEffect(() => {
 		loadMails()
@@ -44,7 +46,8 @@ export function MailIndex() {
 		const filterForParams = {
 			txt: filterBy.txt || '',
 			isRead: filterBy.isRead || '',
-			isStarred: filterBy.isStarred || ''
+			isStarred: filterBy.isStarred || '',
+			sortBy: sortBy.by || ''
 		}
 		setSearchParams(filterForParams)
 
@@ -77,6 +80,38 @@ export function MailIndex() {
 			setMails(prevMails => {
 				return prevMails.filter(mail => mail.id !== updatedMail.id)
 			})
+			showSuccessMsg('Mail was sent to trash')
+		} catch (err) {
+			showErrorMsg('Can not update mail')
+			console.log('Had issues updating mail', err);
+		}
+	}
+
+	async function onArchiveSelected() {
+		try {
+			const mailsToArchive = await Promise.all(selectedMailsIds.map((id) => mailService.get(id)))
+			const mailsToSave = mailsToArchive.map(m => {
+				return {
+					...m,
+					removedAt: Date.now()
+				}
+			})
+		 const savedMails = await Promise.all(mailsToSave.forEach((m) => archiveSelected(m)))
+		 
+			
+		} catch (err) {
+			console.log('cannot delete all mails ', err)
+		}
+	}
+
+	async function archiveSelected(mail){
+		try {
+			const updatedMail = await mailService.save(mail)
+			// Filter it out of the current state (based on folder and ux logic)
+			setMails(prevMails => {
+				return prevMails.filter(mail => mail.id !== updatedMail.id)
+			})
+			showSuccessMsg('Mail was sent to trash')
 		} catch (err) {
 			showErrorMsg('Can not update mail')
 			console.log('Had issues updating mail', err);
@@ -106,7 +141,7 @@ export function MailIndex() {
 
 			const msg = savedMail.isDraft ? 'Mail saved to draft' : 'Mail Sent to ' + savedMail.to
 			showSuccessMsg(msg)
-			
+
 			return savedMail
 		} catch (err) {
 			showErrorMsg('Sending mail failed')
@@ -126,6 +161,14 @@ export function MailIndex() {
 		return mailService.filterMailsByFolder(mails, params.folder)
 	}
 
+	function toggleEmailSelection(emailId) {
+		if (selectedMailsIds.includes(emailId)) {
+			setSelectedMailsIds(selectedMailsIds.filter((id) => id !== emailId))
+		} else {
+			setSelectedMailsIds([...selectedMailsIds, emailId]);
+		}
+	}
+
 	return (
 		<Fragment>
 			<main className="mail-index">
@@ -134,9 +177,11 @@ export function MailIndex() {
 				<MailFilter onSetFilter={onSetFilter} filterBy={{ txt: filterBy.txt }} />
 				{(!params.mailId || location.pathname.includes('compose')) && (
 					<div className="mail-list-container">
+						{selectedMailsIds.length > 0 && <section className='multiple-mails-action' onClick={onArchiveSelected}>Archive selected</section>}
 						<MailSort onSetSortBy={setSortBy} sortBy={sortBy} />
 						<MailList
-							// mails={getMailsByFolder()}
+							toggleEmailSelection={toggleEmailSelection}
+							selectedMailsIds={selectedMailsIds}
 							mails={mails}
 							onUpdateMail={onUpdateMail}
 							onRemoveMail={onRemoveMail}
